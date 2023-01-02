@@ -1,0 +1,27 @@
+  //Car(виробник) = "опис"
+  //Car(виробник, назва) = "Комплектація"
+  //Car(виробник, назва, рік виробництва) = ціна
+  //Car(виробник, назва, рік виробництва, знижка) = "посилання на покупку"
+  
+  
+  set ^Car("Toyota") = "японська автомобільна корпорація, що входить до складу фінансово-промислової групи «Тойота»"
+  set ^Car("Toyota", "Camry") = $lb("Bluetooth", "Sunroof", "Navigation")
+  set ^Car("Toyota", "Camry", 2015) = 35000
+  set ^Car("Toyota", "Camry", 2004) = 3900
+  set ^Car("Toyota", "Corolla", 2019) = 19600
+  set ^Car("Toyota", "Camry", 2003, 0.3) = "toyota.com"
+  
+  set ^Car("BMW", "750li") = $lb("Bluetooth", "Climate control", "Pneumo-suspension")
+  set ^Car("BMW", "750li", 2021) = 103000
+  set ^Car("BMW", "X3", 2006) = 4160
+  set ^Car("BMW", "X5", 2011) = 11200
+  
+  read "Введіть назву компоненту: ", el, !
+  set x = $name(^Car("Toyota"))
+  
+  for {
+    set x = $Query(@x)
+    if ((x="")||($qsubscript(x,1)'="Toyota")){Quit}
+    if (($qlength(x) = 2) && ($listfind($get(@x),el)>0))
+      {Write "В ", $qsubscript(x,2), " є компонент ", el, ". Повна комплектація: ", $listtostring(@x,", "), ".", !}
+  }
