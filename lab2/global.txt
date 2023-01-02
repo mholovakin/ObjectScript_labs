@@ -6,6 +6,8 @@
   
   set ^Car("Toyota") = "японська автомобільна корпорація, що входить до складу фінансово-промислової групи «Тойота»"
   set ^Car("Toyota", "Camry") = $lb("Bluetooth", "Sunroof", "Navigation")
+  set ^Car("Toyota", "Corolla") = $lb("Sunroof", "Big trunk")
+  set ^Car("Toyota", "RAV4") = $lb("Bluetooth", "Navigation", "Pneumo-suspension")
   set ^Car("Toyota", "Camry", 2015) = 35000
   set ^Car("Toyota", "Camry", 2004) = 3900
   set ^Car("Toyota", "Corolla", 2019) = 19600
